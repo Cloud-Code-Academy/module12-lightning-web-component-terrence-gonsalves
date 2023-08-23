@@ -1,18 +1,49 @@
-# Salesforce DX Project: Next Steps
+# Developer Kickstart: Introduction to Lightning Web Components (LWC)
+This project is a foundational pillar of the Developer Kickstart curriculum at Cloud Code Academy. Crafted specifically for budding Salesforce developers, this module introduces the groundbreaking world of Lightning Web Components. LWC opens a new dimension in Salesforce front-end development, emphasizing modern JavaScript techniques, Salesforce data integration, and interactive user interfaces.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Goals of the Practice
+Throughout this project, you'll cultivate a deeper understanding of:
 
-## How Do You Plan to Deploy Your Changes?
+- The pivotal transition from Aura Components to Lightning Web Components, and why LWC is the modern approach to Salesforce UI development.
+- Crafting sleek, responsive, and data-driven components using the LWC framework and modern JavaScript standards.
+- Harnessing Salesforce's Lightning Data Service (LDS) to seamlessly fetch, display, and modify Salesforce data in real-time.
+- The significance of component composition, enabling the reuse of smaller components to build larger, more complex user interfaces.
+- Incorporating third-party libraries and leveraging the event-driven architecture to enhance user experience and inter-component communication.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+By mastering the basics of Lightning Web Components, you'll lay the foundation for creating intuitive, dynamic, and responsive Salesforce user interfaces. This knowledge solidifies your path in evolving as a full-stack Salesforce developer, ready to craft end-to-end solutions that captivate users and drive business results.
 
-## Configure Your Salesforce DX Project
+## Setup
+[Beginner Setup Overview Video](https://vimeo.com/839597882/46fc06d93e)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+[Intermediate Setup Overview Video](https://vimeo.com/847130413/955b8bdbe2)
 
-## Read All About It
+To get started, you'll need a Salesforce Trailhead Playground. If you don't have one, you can create it for free from any Trailhead module.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+After you've set up your Trailhead Playground:
+
+1. Install Visual Studio Code from [here](https://code.visualstudio.com/download).
+2. Install Salesforce Extension Pack in Visual Studio Code. This can be done by searching 'Salesforce Extension Pack' in the Extensions view in VS Code and clicking Install.
+3. Authorize your Trailhead Playground in Visual Studio Code. Press `Ctrl + Shift + P` to open the command palette and type 'SFDX: Authorize an Org', then press Enter. Follow the steps in the browser to log in to your Playground, then return to VS Code.
+4. Deploy the Apex Class by right clicking on the `VariablesDatatypesOperators` and  `VariablesDatatypesOperatorsTest` file a using the option SFDX: Deploy Source to Org.
+
+## Running the Test Classes
+
+To run the test classes:
+
+1. Open the command palette with `Ctrl + Shift + P`.
+2. Type 'SFDX: Invoke Apex Tests...', and press Enter.
+3. In the 'Select Test Class' input, select the test class you want to run and press Enter.
+4. The test results will appear in the Output panel at the bottom of the screen. You can switch to the 'Test' tab in this panel to see a summary of the test run.
+
+## Resources
+
+If you get stuck at any point, here are some resources that might help:
+
+- [Apex Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm)
+- [Salesforce Stack Exchange](https://salesforce.stackexchange.com/)
+- [Visual Studio Code Documentation](https://code.visualstudio.com/docs)
+- [Salesforce Extensions for Visual Studio Code](https://developer.salesforce.com/tools/vscode/)
+
+And remember, programming is often about solving problems, so don't be afraid to use search engines to find answers to your questions.
+
+Good luck with your learning journey in Salesforce development!
