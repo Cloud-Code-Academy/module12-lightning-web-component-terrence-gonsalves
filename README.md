@@ -6,9 +6,7 @@ Throughout this project, you'll cultivate a deeper understanding of:
 
 - The pivotal transition from Aura Components to Lightning Web Components, and why LWC is the modern approach to Salesforce UI development.
 - Crafting sleek, responsive, and data-driven components using the LWC framework and modern JavaScript standards.
-- Harnessing Salesforce's Lightning Data Service (LDS) to seamlessly fetch, display, and modify Salesforce data in real-time.
 - The significance of component composition, enabling the reuse of smaller components to build larger, more complex user interfaces.
-- Incorporating third-party libraries and leveraging the event-driven architecture to enhance user experience and inter-component communication.
 
 By mastering the basics of Lightning Web Components, you'll lay the foundation for creating intuitive, dynamic, and responsive Salesforce user interfaces. This knowledge solidifies your path in evolving as a full-stack Salesforce developer, ready to craft end-to-end solutions that captivate users and drive business results.
 
