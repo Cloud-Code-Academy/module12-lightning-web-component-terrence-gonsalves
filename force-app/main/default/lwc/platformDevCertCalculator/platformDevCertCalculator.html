@@ -14,7 +14,7 @@
                 <div class="sectionHeaders">Developer Fundamentals</div>
                 <div class="columns scoreColumns">
                     <div class="inputWrapper">
-                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="dev" type="number" value={devFunScore} onchange={changeHandler}></lightning-input>
+                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="dev" type="number" value={devScore} onchange={changeHandler}></lightning-input>
                     </div>
                 </div>
                 <div class="columns weightingColumns">23%</div>
@@ -27,7 +27,7 @@
                 <div class="sectionHeaders">Process Automation and Logic</div>
                 <div class="columns scoreColumns">
                     <div class="inputWrapper">
-                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="auto" type="number" value={automationScore} onchange={changeHandler}></lightning-input>
+                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="auto" type="number" value={autoScore} onchange={changeHandler}></lightning-input>
                     </div>
                 </div>
                 <div class="columns weightingColumns">30%</div>
@@ -72,6 +72,27 @@
                 <div class="columnsTotals">{yourScore}%</div>
             </div>
 
+            <div lwc:if={missingFields}>
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                    <span class="slds-assistive-text">error</span>
+                    <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
+                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                        </svg>
+                    </span>
+                    <h2>All fields need to be filled in before the scores can be calculated!</h2>
+                    <div class="slds-notify__close">
+                        <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"  onclick={closeError}>
+                            X
+                        <svg class="slds-button__icon" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div>
                 <div class="buttonsWrapper">
                     Ready to find out? <lightning-button class="calculate" variant="brand" label="Calculate" onclick={calculateScores}></lightning-button>
@@ -97,11 +118,19 @@
                     </div>
                 </div>
 
-                <div>
-                    <h3>Previous Attempts</h3>
+                <div class="slds-p-around_small">
+                    <h2>Previous Attempts</h2>
                     <lightning-tabset>
                         <div for:each={attemptHistory} for:item="attempt" key={attempt.id}>                        
-                            <lightning-tab label={attempt.id}> Score: {attempt.score} </lightning-tab>
+                            <lightning-tab label={attempt.id}>
+                                <c-score-information 
+                                    score={attempt.score}
+                                    correct={attempt.correct}
+                                    incorrect={attempt.incorrect}
+                                    attempt-id={attempt.id}
+                                    ondelete={deleteAttemptEvent}
+                                ></c-score-information>
+                        </lightning-tab>
                         </div>
                     </lightning-tabset>
                 </div>

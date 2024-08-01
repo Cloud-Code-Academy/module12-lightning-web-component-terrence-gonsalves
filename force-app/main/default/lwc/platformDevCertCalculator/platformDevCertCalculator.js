@@ -20,7 +20,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
     devIncorrect = 0;
     devResult = 0;;
 
-    autScore;
+    autoScore;
     autoCorrect = 0;
     autoIncorrect = 0;
     autoResult = 0;
@@ -42,8 +42,10 @@ export default class PlatformDevCertCalculator extends LightningElement {
     areDetailsVisible = false;
     scorePass = false;
     scoreFail = true;
+    missingFields = false;;
 
     attemptHistory = [];
+    currentHistory = 0;
 
     changeHandler(e) {
         switch (e.target.name) {
@@ -62,15 +64,15 @@ export default class PlatformDevCertCalculator extends LightningElement {
                 break;
             case 'auto':
                 if (e.target.value < 0 || e.target.value > 100 || e.target.value == '') {
-                    this.automationScore = '';
+                    this.autScore = '';
                     this.autoCorrect = 0;
                     this.autoIncorrect = 0;
                     this.autoResult = 0;
                 } else {
-                    this.automationScore = e.target.value;
-                    this.autoCorrect = Math.round(AUTOMATION_QUESTIONS * (this.automationScore / 100));
+                    this.autoScore = e.target.value;
+                    this.autoCorrect = Math.round(AUTOMATION_QUESTIONS * (this.autoScore / 100));
                     this.autoIncorrect = AUTOMATION_QUESTIONS - this.autoCorrect;
-                    this.autoResult = Math.round((AUTOMATION_PERCENT * (this.automationScore / 100)) * 100);
+                    this.autoResult = Math.round((AUTOMATION_PERCENT * (this.autoScore / 100)) * 100);
                 }
                 break;
             case 'ui':
@@ -102,31 +104,42 @@ export default class PlatformDevCertCalculator extends LightningElement {
         }
     }
 
+    closeError() {
+        this.missingFields = false;
+    }
+
     calculateScores() {
-        this.correctTotal = this.devCorrect + this.autoCorrect + this.uiCorrect + this.testCorrect;
-        this.incorrectTotal = this.devIncorrect + this.autoIncorrect + this.uiIncorrect + this.testIncorrect;
-        this.yourScore = Math.round((this.correctTotal / TOTAL_QUESTIONS) * 100);
-
-        this.areDetailsVisible = true;
-
-        if (this.yourScore >= 68) {
-            this.scorePass = true;
-            this.scoreFail = false;
+        if (this.devScore == '' || this.autoScore == '' || this.uiScore == '' || this.testScore == '' || 
+            this.devScore == null || this.autoScore == null || this.uiScore == null || this.testScore == null) {
+            this.missingFields = true;
         } else {
-            this.scorePass = false;
-            this.scoreFail = true;
-        }
+            this.missingFields = false;
 
-        this.addAttempt(this.yourScore);
+            this.correctTotal = this.devCorrect + this.autoCorrect + this.uiCorrect + this.testCorrect;
+            this.incorrectTotal = this.devIncorrect + this.autoIncorrect + this.uiIncorrect + this.testIncorrect;
+            this.yourScore = Math.round((this.correctTotal / TOTAL_QUESTIONS) * 100);
+
+            this.areDetailsVisible = true;
+
+            if (this.yourScore >= 68) {
+                this.scorePass = true;
+                this.scoreFail = false;
+            } else {
+                this.scorePass = false;
+                this.scoreFail = true;
+            }
+
+            this.addAttempt(this.yourScore, this.correctTotal, this.incorrectTotal);
+        }        
     }
 
     resetScores() {
-        this.devFunScore = '';
+        this.devScore = '';
         this.devCorrect = 0;
         this.devIncorrect = 0;
         this.devResult = 0;
 
-        this.automationScore = '';
+        this.autoScore = '';
         this.autoCorrect = 0;
         this.autoIncorrect = 0;
         this.autoResult = 0;
@@ -148,12 +161,19 @@ export default class PlatformDevCertCalculator extends LightningElement {
         this.areDetailsVisible = false;
         this.scoreFail = true;
         this.scorePass = false;
+        this.missingFields = false;
     }
 
-    addAttempt(score) {
+    addAttempt(score, correct, incorrect) {
+        this.currentHistory++;
+
         this.attemptHistory = [
             ...this.attemptHistory,
-            {id: this.attemptHistory.length + 1, score}
+            {id: this.currentHistory, score, correct, incorrect}
         ];
+    }
+
+    deleteAttemptEvent(e) {
+        this.attemptHistory = this.attemptHistory.filter(attempt => attempt.id != e.detail.id);
     }
 }
