@@ -1,0 +1,102 @@
+<template>
+    <lightning-card title="PD Certification Calculator" icon-name="custom:custom14">
+        <div class="container">
+            <div class="headerWrapper">
+                <div class="headerSections">Sections</div>
+                <div class="headers score">Score</div>
+                <div class="headers weighting">Weighting</div>
+                <div class="headers questions">Questions</div>
+                <div class="headers correct">Correct</div>
+                <div class="headers incorrect">Incorrect</div>
+                <div class="headers result">Result</div>
+            </div>
+            <div class="sectionsWrapper">
+                <div class="sectionHeaders">Developer Fundamentals</div>
+                <div class="columns scoreColumns">
+                    <div class="inputWrapper">
+                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="dev" type="number" value={devFunScore} onchange={changeHandler}></lightning-input>
+                    </div>
+                </div>
+                <div class="columns weightingColumns">23%</div>
+                <div class="columns questionsColumns">14</div>
+                <div class="columns correctColumns">{devCorrect}</div>
+                <div class="columns incorrectColumns">{devIncorrect}</div>
+                <div class="columns resultColumns">{devResult}%</div>
+            </div>
+            <div class="sectionWrapper">
+                <div class="sectionHeaders">Process Automation and Logic</div>
+                <div class="columns scoreColumns">
+                    <div class="inputWrapper">
+                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="auto" type="number" value={automationScore} onchange={changeHandler}></lightning-input>
+                    </div>
+                </div>
+                <div class="columns weightingColumns">30%</div>
+                <div class="columns questionsColumns">18</div>
+                <div class="columns correctColumns">{autoCorrect}</div>
+                <div class="columns incorrectColumns">{autoIncorrect}</div>
+                <div class="columns resultColumns">{autoResult}%</div>
+            </div>
+            <div class="sectionWrapper">
+                <div class="sectionHeaders">User Interface</div>
+                <div class="columns scoreColumns">
+                    <div class="inputWrapper">
+                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="ui" type="number" value={uiScore} onchange={changeHandler}></lightning-input>
+                    </div>
+                </div>
+                <div class="columns weightingColumns">25%</div>
+                <div class="columns questionsColumns">15</div>
+                <div class="columns correctColumns">{uiCorrect}</div>
+                <div class="columns incorrectColumns">{uiIncorrect}</div>
+                <div class="columns resultColumns">{uiResult}%</div>
+            </div>
+            <div class="sectionWrapper">
+                <div class="sectionHeaders">Testing, Debugging and Deployment</div>
+                <div class="columns scoreColumns">
+                    <div class="inputWrapper">
+                        <lightning-input style="width: 40%; float: left;position:relative; top:-10px;" name="test" type="number" value={testScore} onchange={changeHandler}></lightning-input>
+                    </div>
+                </div>
+                <div class="columns weightingColumns">22%</div>
+                <div class="columns questionsColumns">13</div>
+                <div class="columns correctColumns">{testCorrect}</div>
+                <div class="columns incorrectColumns">{testIncorrect}</div>
+                <div class="columns resultColumns">{testResult}%</div>
+            </div>
+            <div class="sectionWrapper totals">
+                <div class="sectionHeaderTotal">Certification Exam Results</div>
+                <div class="columnsTotals">>></div>
+                <div class="columnsTotals">100%</div>
+                <div class="columnsTotals">60</div>
+                <div class="columnsTotals">{correctTotal}</div>
+                <div class="columnsTotals">{incorrectTotal}</div>
+                <div class="columnsTotals">{yourScore}%</div>
+            </div>
+
+            <div>
+                <div class="buttonsWrapper">
+                    Ready to find out? <lightning-button class="calculate" variant="brand" label="Calculate" onclick={calculateScores}></lightning-button>
+                    <lightning-button class="reset" variant="brand" label="Reset" onclick={resetScores}></lightning-button>
+                </div>
+                <div class="scoreWrapper">
+                    <div class="passingScoreWrapper">
+                        <div class="passingScore">68</div>
+                        <div class="scoreText">Passing score %</div>
+                    </div>
+
+                    <template lwc:if={areDetailsVisible}>
+                        <div class="passFileWrapper">
+                            <div lwc:if={scorePass} class="passedText">Congratulations you have passed!</div>
+                            <div lwc:if={scoreFail} class="failedText">Unfortunately you did not pass!</div>
+                        </div>
+                    </template>
+                    
+                    <div class="yourScoreWrapper">
+                        <div lwc:if={scoreFail} class="yourScore">{yourScore}</div>
+                        <div lwc:if={scorePass} class="yourScorePass">{yourScore}</div>
+                        <div class="yourScoreText">Your score %</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

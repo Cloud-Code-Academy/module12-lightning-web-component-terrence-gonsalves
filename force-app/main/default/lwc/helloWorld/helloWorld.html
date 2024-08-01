@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Hello World" icon-name="custom:custom14">
+        <div class="slds-text-align_center">
+            <p class="slds-text-heading_medium">
+                Hello World
+            </p>
+            <p>Hi, {greeting}! How are you</p>
+            <p class="slds-text-body_regular">
+                This is a static component
+            </p>
+            <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
+        </div>
+    </lightning-card>
+</template>
