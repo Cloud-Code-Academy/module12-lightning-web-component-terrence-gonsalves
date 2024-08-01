@@ -1,0 +1,236 @@
+.container {
+    flex: 1;
+    width: 100%;
+}
+.headerWrapper {
+    width: 100%;
+    overflow: auto;
+    background-color: #3786d4;
+    vertical-align: middle;
+}
+
+.headerSections {
+    width: 350px;
+    float: left;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px
+}
+
+.headers {
+    float: left;
+    width: 12.3%;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px
+}
+
+.score {
+    background-color: #2672bc;
+    padding: 15px;
+}
+
+.weighting {
+    background-color: #2d67a0;
+    padding: 15px;
+}
+
+.questions {
+    background-color: #2b5b89;
+    padding: 15px;
+}
+
+.correct {
+    background-color: #5eb613;
+    padding: 15px;
+}
+
+.incorrect {
+    background-color: #c50a0a;
+    padding: 15px;
+}
+
+.result {
+    background-color: #2b4a69;
+    padding: 15px;
+}
+
+.sectionWrapper {
+    width: 100%;
+    overflow: auto;
+}
+
+.sectionHeaders {
+    width: 350px;
+    float: left;
+    padding: 15px;
+    background: #e6ecf3;
+}
+
+.columns {
+    float: left;
+    width: 12.3%;
+    text-align: center;
+}
+
+.scoreColumns {
+    background: #a8c4df82;
+        padding: 0px 0 0 70px;
+}
+
+.weightingColumns {
+    background-color: #b4d1ee6b;
+    padding: 15px;
+}
+
+.questionsColumns {
+    padding: 15px;
+}
+
+.correctColumns {
+    background-color: #7ac50a24;
+    color: #55880a;
+    padding: 15px;
+}
+
+.incorrectColumns {
+    padding: 15px;
+    background-color: #c50a0a24;
+    color: #c50a0a;
+}
+
+.resultColumns {
+    padding: 15px;
+    font-weight: bold;
+}
+
+.inputWrapper:after {
+    content: '%';
+    display: inline-block;
+    position: relative;
+    top: 15px;
+    right: calc(50% - 40px);
+}
+
+.buttonsWrapper {
+    background-color: #b4d1ee6b;
+    text-align: center;
+    font-size: 25px;
+    padding: 15px;
+}
+
+.sectionHeaderTotal {
+    width: 350px;
+    float: left;
+    padding: 15px;
+    background: #2a70b7;
+}
+
+.totals {
+    background: #2a70b7 !important;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.columnsTotals {
+    float: left;
+    width: 12.3%;
+    text-align: center;
+    padding: 15px;
+}
+
+.scoreWrapper {
+    background-color: #2b4a69;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    overflow: auto;
+    padding: 25px 15px 20px;
+}
+
+.calculate {
+    padding: 10px 5px !important;
+    box-sizing: content-box;
+    margin-left: 15px;
+}
+
+.reset {
+    width: 200px;
+    margin-left: 15px;
+    padding: 10px 5px !important;
+}
+
+.passingScoreWrapper {
+    float: left;
+    padding-left: 50px;
+    width: 33%;
+    font-weight: bold;
+}
+
+.yourScoreWrapper {
+    float: right;
+    padding-right: 50px;
+    width: 33%;
+}
+
+.passFileWrapper {
+    float: left;
+    width: 33%;
+}
+
+.passingScore {
+    float: left;
+    margin-right: 10px;
+    background-color: green;
+    padding: 20px;
+    border-radius: 100%;
+    border: 2px solid white;
+    width: 70px;
+}
+
+.yourScore {
+    float: right;
+    margin-right: 10px;
+    background-color: red;
+    padding: 20px;
+    border-radius: 100%;
+    border: 2px solid white;
+    width: 70px;
+    font-weight: bold;
+}
+
+.yourScorePass {
+    float: right;
+    margin-right: 10px;
+    background-color: green;
+    padding: 20px;
+    border-radius: 100%;
+    border: 2px solid white;
+    width: 70px;
+    font-weight: bold;
+}
+
+.scoreText {
+    float: left;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.yourScoreText {
+    float: right;
+    padding-top: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.failedText,
+.passedText {
+    padding-top: 20px;
+}
+
+.passedText {
+    font-size: 18px;
+    font-weight: bold;
+}
