@@ -43,6 +43,8 @@ export default class PlatformDevCertCalculator extends LightningElement {
     scorePass = false;
     scoreFail = true;
 
+    attemptHistory = [];
+
     changeHandler(e) {
         switch (e.target.name) {
             case 'dev':
@@ -114,6 +116,8 @@ export default class PlatformDevCertCalculator extends LightningElement {
             this.scorePass = false;
             this.scoreFail = true;
         }
+
+        this.addAttempt(this.yourScore);
     }
 
     resetScores() {
@@ -144,5 +148,12 @@ export default class PlatformDevCertCalculator extends LightningElement {
         this.areDetailsVisible = false;
         this.scoreFail = true;
         this.scorePass = false;
+    }
+
+    addAttempt(score) {
+        this.attemptHistory = [
+            ...this.attemptHistory,
+            {id: this.attemptHistory.length + 1, score}
+        ];
     }
 }

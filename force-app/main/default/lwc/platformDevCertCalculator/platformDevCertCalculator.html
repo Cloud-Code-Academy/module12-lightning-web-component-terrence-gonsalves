@@ -96,6 +96,15 @@
                         <div class="yourScoreText">Your score %</div>
                     </div>
                 </div>
+
+                <div>
+                    <h3>Previous Attempts</h3>
+                    <lightning-tabset>
+                        <div for:each={attemptHistory} for:item="attempt" key={attempt.id}>                        
+                            <lightning-tab label={attempt.id}> Score: {attempt.score} </lightning-tab>
+                        </div>
+                    </lightning-tabset>
+                </div>
             </div>
         </div>
     </lightning-card>
